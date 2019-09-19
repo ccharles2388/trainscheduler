@@ -1,4 +1,4 @@
-/ 1. Initialize Firebase
+//1. Initialize Firebase
 var config = {
   apiKey: "AIzaSyDdPzvFCDhjbEvJyDlNv0CYok-qUtJc_YI",
   authDomain: "time-sheet-55009.firebaseapp.com",
