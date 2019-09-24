@@ -17,6 +17,7 @@ var database = firebase.database();
 // 2. Button for adding Employees
 $("#add-train-btn").on("click", function (event) {
   event.preventDefault();
+  // Consoled logto test javascript
   console.log("ok");
   // Grabs user train input
   var trainName = $("#train-name-input").val().trim();
