@@ -21,7 +21,7 @@ $("#add-train-btn").on("click", function (event) {
   // Grabs user train input
   var trainName = $("#train-name-input").val().trim();
   var trainDest = $("#destination-input").val().trim();
-  var firstTime = moment($("#first-time-input").val().trim(), "HHMM").format("X");
+  var firstTime = moment($("#first-time-input").val().trim(), "HH:mm").format("X");
   var frequency = $("#frequency-input").val().trim();
 
   // Creates local "temporary" object for holding train data
@@ -67,7 +67,7 @@ database.ref().on("child_added", function (childSnapshot) {
   console.log(frequency);
 
   // First Time (pushed back 1 year to make sure it comes before current time)
-  var firstTimeConverted = moment(firstTime, "HH:mm").subtract(1, "years");
+  var firstTimeConverted = moment.unix(firstTime).subtract(1, "years");
   console.log(firstTimeConverted);
 
   // Current Time
@@ -75,7 +75,7 @@ database.ref().on("child_added", function (childSnapshot) {
   console.log("CURRENT TIME: " + moment(currentTime).format("hh:mm"));
 
   // Difference between the times
-  var diffTime = moment().diff(moment(firstTimeConverted), "minutes");
+  var diffTime = moment().diff(firstTimeConverted, "minutes");
   console.log("DIFFERENCE IN TIME: " + diffTime);
 
   // Time apart (remainder)
@@ -97,8 +97,9 @@ database.ref().on("child_added", function (childSnapshot) {
     $("<td>").text(newTrain),
     $("<td>").text(trainDest),
     $("<td>").text(frequency),
-    $("<td>").text(nextTrain),
-    $("<td>").text(tMinutesTillTrainemainder)
+    $("<td>").text(nextTrain.format("hh:mm")),
+    $("<td>").text(tMinutesTillTrain)
+    
 
   );
 
