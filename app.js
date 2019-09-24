@@ -97,7 +97,8 @@ database.ref().on("child_added", function (childSnapshot) {
     $("<td>").text(newTrain),
     $("<td>").text(trainDest),
     $("<td>").text(frequency),
-    $("<td>").text(firstTime)
+    $("<td>").text(nextTrain),
+    $("<td>").text(tRemainder)
     
   );
 
