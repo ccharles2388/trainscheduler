@@ -27,7 +27,7 @@ $("#add-train-btn").on("click", function (event) {
 
   // Creates local "temporary" object for holding train data
   var newTrain = {
-    name: newTrain,
+    name: trainName,
     dest: trainDest,
     time: firstTime,
     freq: frequency
@@ -79,9 +79,9 @@ database.ref().on("child_added", function (childSnapshot) {
     $("<td>").text(newTrain),
     $("<td>").text(trainDest),
     $("<td>").text(firstTimePretty),
-    $("<td>").text(empMonths),
+    $("<td>").text(firstTime),
     $("<td>").text(frequency),
-    $("<td>").text(empBilled)
+    
   );
 
   // Append the new row to the table
