@@ -17,7 +17,7 @@ var database = firebase.database();
 // 2. Button for adding Employees
 $("#add-train-btn").on("click", function (event) {
   event.preventDefault();
-  
+
   // Grabs user train input
   var trainName = $("#train-name-input").val().trim();
   var trainDest = $("#destination-input").val().trim();
@@ -98,8 +98,8 @@ database.ref().on("child_added", function (childSnapshot) {
     $("<td>").text(trainDest),
     $("<td>").text(frequency),
     $("<td>").text(nextTrain),
-    $("<td>").text(tRemainder)
-    
+    $("<td>").text(tMinutesTillTrainemainder)
+
   );
 
   // Append the new row to the table
